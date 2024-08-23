@@ -70,15 +70,26 @@ buttons.forEach(btn => {
 
 // ------ Cursor Light ------
 const cursor = document.querySelector("#cursor");
-const cursorBorder = document.querySelector("#cursor-border");
+const cursorLight = document.querySelector("#cursor-light");
+
+let cursorX = 0, cursorY = 0;
+let borderX = 0, borderY = 0;
+
+const lagAmount = .1;
 
 document.addEventListener("mousemove", (e) => {
-  const x = e.clientX;
-  const y = e.clientY;
-
-  // Move the cyan ring
-  cursor.style.transform = `translate(${x}px, ${y}px)`;
-
-  // Move the gradient light in sync with the ring
-  cursorBorder.style.transform = `translate(${x}px, ${y}px)`;
+  cursorX = e.clientX;
+  cursorY = e.clientY;
 });
+
+function updateCursor() {
+  cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+
+  borderX += (cursorX - borderX) * lagAmount;
+  borderY += (cursorY - borderY) * lagAmount;
+  cursorLight.style.transform = `translate(${borderX}px, ${borderY}px)`;
+
+  requestAnimationFrame(updateCursor);
+}
+
+updateCursor();
