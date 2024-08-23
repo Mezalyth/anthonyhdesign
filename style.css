@@ -51,6 +51,7 @@ button {
 }
 
 button:hover, button:focus {
+    background: var(--blue-cobalt);
     border-color: var(--cyan);
     box-shadow: 0 0.5em 2em 0.5em var(--blue-cobalt);
     transform: translateY(-0.25em);
@@ -68,8 +69,9 @@ button:hover, button:focus {
   }
   
   .mouse-cursor-gradient-tracking span {
-    position: relative;
-  }
+    position: relative; 
+    z-index: 1;
+}
   
   .mouse-cursor-gradient-tracking::before {
     --size: 0;
@@ -114,5 +116,5 @@ button:hover, button:focus {
     border-radius: 50%;
     background: radial-gradient(circle, rgba(0, 204, 255, 0.1) .4%, rgba(0, 204, 255, 0) 30%);
     pointer-events: none;
-    z-index: 1; /* Lower z-index to stay behind text */
+    z-index: -1; /* Lower z-index to stay behind text */
 }
