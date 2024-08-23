@@ -67,3 +67,18 @@ buttons.forEach(btn => {
     btn.style.setProperty('--y', y + 'px');
   });
 });
+
+// ------ Cursor Light ------
+const cursor = document.querySelector("#cursor");
+const cursorBorder = document.querySelector("#cursor-border");
+
+document.addEventListener("mousemove", (e) => {
+  const x = e.clientX;
+  const y = e.clientY;
+
+  // Move the cyan ring
+  cursor.style.transform = `translate(${x}px, ${y}px)`;
+
+  // Move the gradient light in sync with the ring
+  cursorBorder.style.transform = `translate(${x}px, ${y}px)`;
+});
