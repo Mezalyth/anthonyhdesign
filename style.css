@@ -13,14 +13,29 @@
 
 body {
     background:var(--black);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    height: 100vh;
+    margin: 2%;
 }
 
 h1, h2, h3, h4, h5, h6{
     color: var(--white);
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
+    font-family: "Gasoek One", sans-serif;
+    font-weight: 400;
     font-style: normal;  
+    text-transform: uppercase;
+    margin: 0;
+}
+
+#header h2 {
+    font-size: 4rem;
 }
 
 p {
@@ -32,14 +47,14 @@ p {
 }
 
 .handwritten {
-    font-family: "Protest Revolution", sans-serif;
-    font-weight: 400;
-    font-style: normal; 
+    color: var(--blue-primary);
 }
 
 .typewrite {
     text-decoration: none;
-    color: var(--white);
+    color: var(--cyan);
+    cursor: text;
+    text-shadow: var(--blue-cobalt) 2px 2px 30px;
 } 
 
 button {
@@ -47,7 +62,7 @@ button {
     border: 1px solid;
     border-color: var(--gray);
     border-radius: 50px;
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    transition: all 0.3s;
 }
 
 button:hover, button:focus {
@@ -56,6 +71,19 @@ button:hover, button:focus {
     box-shadow: 0 0.5em 2em 0.5em var(--blue-cobalt);
     transform: translateY(-0.25em);
 }
+
+.glassmorphism {
+    background: linear-gradient(to bottom right, 
+                rgba(4, 38, 70, 0.9) 0%, /* --blue-night with 90% opacity */
+                rgba(5, 5, 5, 0.95) 100%), /* --black with 95% opacity */
+                rgba(5, 5, 5, 0.7); /* --black with 70% opacity as base */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* for Safari */
+    border-radius: 10px;
+    border: 1px solid rgba(81, 81, 81, 0.3); /* --gray with reduced opacity */
+    box-shadow: 0 8px 32px 0 rgba(5, 5, 5, 0.5); /* Darker shadow for depth */
+    padding: 20px;
+  }
 
 /* ------ Button Gradient Tracking ------ */
 .mouse-cursor-gradient-tracking {
@@ -81,7 +109,7 @@ button:hover, button:focus {
     top: var(--y);
     width: var(--size);
     height: var(--size);
-    background: radial-gradient(circle closest-side, rgb(0, 166, 255), transparent);
+    background: radial-gradient(circle closest-side, #00ccff, transparent);
     transform: translate(-50%, -50%);
     transition: width 0.2s ease, height 0.2s ease;
   }
@@ -91,7 +119,7 @@ button:hover, button:focus {
   }
 
 
-  /* ------ Cursor Light ------ */
+/* ------ Cursor Light ------ */
 #cursor {
     position: fixed;
     top: -30px;
@@ -117,4 +145,12 @@ button:hover, button:focus {
     background: radial-gradient(circle, rgba(0, 204, 255, 0.1) .4%, rgba(0, 204, 255, 0) 30%);
     pointer-events: none;
     z-index: -1; /* Lower z-index to stay behind text */
+}
+
+/* ------ Font Styles ------ */
+.montserrat-bold {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
 }
